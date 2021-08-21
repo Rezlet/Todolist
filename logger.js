@@ -1,0 +1,11 @@
+export default function logger(reducer) {
+    return (prevState, action, args) => {
+        console.group(action)
+        console.log('Prev State: ', prevState)
+        console.log('action Arguments: ', args)
+        const nextState = reducer(prevState, action, args)
+        console.log('next State: ', nextState)
+        console.groupEnd()
+        return nextState
+    }
+}
